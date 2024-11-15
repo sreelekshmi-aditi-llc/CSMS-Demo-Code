@@ -1,0 +1,149 @@
+<div class="container mx-auto p-6 bg-white rounded shadow-md ">
+  <mat-accordion>
+
+    <form [formGroup]="step5Form">
+      <mat-expansion-panel (opened)="panelOpenState.set(true)" (closed)="panelOpenState.set(false)">
+        <mat-expansion-panel-header class="bg-gray-100">
+          <mat-panel-title class="">Service Type Requested</mat-panel-title>
+          <mat-panel-description>
+            <!-- Currently I am {{panelOpenState() ? 'open' : 'closed'}} -->
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+
+        <div class="flex w-full justify-normal p-2">
+          <label class="block text-sm font-medium">Based on the information provided in your application, these are the
+            types of services available to you. Please check one of the following, if one has not already been
+            preselected: </label>
+        </div>
+        <fieldset class="mb-6">
+          <!-- <legend class="text-lg font-semibold">Custodial Party Alternative Name</legend> -->
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            
+            <div>
+              <label class="flex items-center space-x-2">
+                <input type="checkbox" formControlName="fullServices">
+                <span>Full Services</span>
+              </label>
+            </div>
+            <div>
+              <label class="flex items-center space-x-2">
+                <input type="checkbox" formControlName="locateOnly">
+                <span>Locate Only</span>
+              </label>
+            </div>
+            <div>
+              <label class="flex items-center space-x-2">
+                <input type="checkbox" formControlName="paternityOnly">
+                <span>Paternity Only</span>
+              </label>
+            </div>
+            <div>
+              <label class="flex items-center space-x-2">
+                <input type="checkbox" formControlName="medicalSupportOnly">
+                <span>Medical Support Only</span>
+              </label>
+            </div>
+            <div>
+              <label class="flex items-center space-x-2">
+                <input type="checkbox" formControlName="childSupportOnly">
+                <span>Child Support Only</span>
+              </label>
+            </div>
+            <div>
+              <label class="flex items-center space-x-2">
+                <input type="checkbox" formControlName="childAndSpousalSupportOnly">
+                <span>Child and Spousal Support Only</span>
+              </label>
+            </div>
+
+          </div>
+        </fieldset>
+
+
+      </mat-expansion-panel>
+
+      <mat-expansion-panel (opened)="panelOpenState.set(true)" (closed)="panelOpenState.set(false)">
+        <mat-expansion-panel-header class="bg-gray-100">
+          <mat-panel-title class="">File Upload</mat-panel-title>
+          <mat-panel-description>
+            <!-- Currently I am {{panelOpenState() ? 'open' : 'closed'}} -->
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+
+        <div class="flex w-full justify-normal p-2">
+          <label class="block text-sm font-medium">Please upload the following file(s) before continuing:</label>
+        </div>
+
+        <fieldset class="mb-6">
+          <!-- <legend class="text-lg font-semibold">Custodial Party Alternative Name</legend> -->
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+
+            <div>
+              <!-- <label class="block text-sm font-medium">State</label> -->
+              <select formControlName="category"
+                class="w-full mt-1 p-2 border-0 border-b-2 focus:outline-none focus:ring-0 focus:border-black">
+                <option value="">Select Category</option>
+                <!-- Add state options here -->
+                <option value="Category 1">Category 1</option>
+                <option value="Category 2">Category 2</option>
+                <option value="Category 3">Category 3</option>
+              </select>
+            </div>
+
+
+            <div>
+              <!-- <label class="block text-sm font-medium">Gender</label> -->
+              <select formControlName="document_type" id="gender"
+                class="w-full mt-1 p-2 border-0 border-b-2 focus:outline-none focus:ring-0 focus:border-black">
+                <option value="">Select Document Type</option>
+                <option value="type 1">Type 1</option>
+                <option value="type 2">Type 2</option>
+                <option value="type 3">Type 3</option>
+              </select>
+            </div>
+            <!-- File Upload -->
+            <div>
+              <label>Upload Document</label>
+              <input type="file" id="fileInput" formControlName="fileInput" (change)="handleFileChange($event)"/>
+              <!-- <button mat-raised-button color="primary"> -->
+                <!-- <mat-icon>cloud_upload</mat-icon> Choose File -->
+              <!-- </button> -->
+
+            </div>
+
+
+
+
+
+
+
+
+
+
+            <div class="flex w-full justify-normal p-2">
+              <div>
+                <button type="button"
+                  class="shadow-md border-b-2 text-white bg-blue-950 hover:bg-blue-900 py-2 px-4 rounded-sm mr-2">Scan</button>
+
+              </div>
+            </div>
+            <div class="flex w-full justify-normal p-2">
+              <div>
+                <button type="button"
+                  class="shadow-md border-b-2 text-white bg-blue-950 hover:bg-blue-900 py-2 px-4 rounded-sm mr-2">Finish</button>
+
+              </div>
+            </div>
+          </div>
+        </fieldset>
+
+
+
+      </mat-expansion-panel>
+    </form>
+
+
+
+
+  </mat-accordion>
+</div>

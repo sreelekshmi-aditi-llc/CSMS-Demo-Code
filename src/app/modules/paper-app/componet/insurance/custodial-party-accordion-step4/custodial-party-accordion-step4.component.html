@@ -1,0 +1,96 @@
+<div class="container mx-auto p-6 bg-white rounded shadow-md ">
+    <mat-accordion>
+  
+      <form [formGroup]="step4Form">
+        <mat-expansion-panel (opened)="panelOpenState.set(true)" (closed)="panelOpenState.set(false)">
+          <mat-expansion-panel-header class="bg-gray-100">
+            <mat-panel-title class="">Member Insurance Information</mat-panel-title>
+            <mat-panel-description>
+              <!-- Currently I am {{panelOpenState() ? 'open' : 'closed'}} -->
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+    
+          <div class="flex w-full justify-normal p-2" *ngIf="!showInsuranceForm">
+            <div>
+              <button type="button"
+                class="shadow-md border-b-2 text-white bg-blue-950 hover:bg-blue-900 py-2 px-4 rounded-sm mr-2" (click)="addInsuranceForm()">Add New Insurance</button>
+    
+            </div>
+          </div>
+    
+          <fieldset class="mb-6" *ngIf="showInsuranceForm">
+            <div [formGroup]="insuranceForm" >
+               <div  class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                <div>
+                  <input id="policyNumber" formControlName= "policyNumber" type="text"
+                    class="w-full mt-1 p-2 border-0 border-b-2 focus:outline-none focus:ring-0 focus:border-black"
+                    placeholder="Policy Number"/>
+                </div>
+                <div>
+                  <input formControlName="agentName" type="text"
+                    class="w-full mt-1 p-2 border-0 border-b-2 focus:outline-none focus:ring-0 focus:border-black"
+                    placeholder="Agent Name"  />
+                </div>
+                <div>
+                  <input formControlName="documents" type="file" id="documents"
+                    class="w-full mt-1 p-2 border-0 border-b-2 focus:outline-none focus:ring-0 focus:border-black"
+                    placeholder="Documents" (change)="onFileSelect($event)"/>
+                </div>
+       
+                
+                <div class="flex w-full justify-normal p-2">
+                  <div>
+                    <button type="button"
+                      class="shadow-md border-b-2 text-white bg-blue-950 hover:bg-blue-900 py-2 px-4 rounded-sm mr-2" (click)="addInsurance()">Save</button>
+      
+                  </div>
+                </div>
+               </div>
+              
+            </div>
+          </fieldset>
+          <table *ngIf="insurance.length > 0" mat-table [dataSource]="insurance.value" class="mat-elevation-z8 demo-table">
+   
+  
+            <!-- firstName Column -->
+            <ng-container matColumnDef="policyNumber">
+              <th mat-header-cell *matHeaderCellDef>Policy Number</th>
+              <td mat-cell *matCellDef="let insurance">{{insurance.policyNumber}}</td>
+            </ng-container>
+        
+               <!-- LastName Column -->
+               <ng-container matColumnDef="agentName">
+                <th mat-header-cell *matHeaderCellDef>Agent Name</th>
+                <td mat-cell *matCellDef="let insurance">{{insurance.agentName}}</td>
+              </ng-container>
+          
+            <!-- ssn Column -->
+            <ng-container matColumnDef="documents">
+              <th mat-header-cell *matHeaderCellDef>Documents</th>
+              <td mat-cell *matCellDef="let insurance">{{insurance.documents.name}}</td>
+            </ng-container>
+        
+           
+      
+          
+            <!-- Actions Column -->
+            <ng-container matColumnDef="actions">
+              <th mat-header-cell *matHeaderCellDef>Actions</th>
+              <td mat-cell *matCellDef="let i = index">
+                <button mat-icon-button color="warn" (click)="deleteInsurance(i)">
+                  <mat-icon>delete</mat-icon>
+                </button>
+              </td>
+            </ng-container>
+        
+            <tr mat-header-row *matHeaderRowDef="['policyNumber','agentName', 'documents', 'actions']"></tr>
+            <tr mat-row *matRowDef="let row; columns: ['policyNumber','agentName', 'documents', 'actions'];"></tr>
+          </table>
+    
+        </mat-expansion-panel>
+    
+       
+      </form>
+  
+    </mat-accordion>
+  </div>

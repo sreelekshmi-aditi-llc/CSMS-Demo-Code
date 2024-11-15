@@ -1,0 +1,49 @@
+
+<div  class="flex items-center justify-center min-h-screen bg-gray-100">
+    <div class="items-center bg-white p-8 rounded shadow-md w-full max-w-md">
+    <!-- <p>login works!</p> -->
+    <h2 class="text-2xl font-bold mb-6 text-center">Signup</h2>
+    <div>
+        <!-- <h2>Login</h2> -->
+        <form (ngSubmit)="onSubmit()">
+            <div  class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="firstname">First Name:</label>
+                <input  class="shadow appearance-none border rounded w-full py-2 px-2 text-gray-700 leading-tight focus:outline-none focus:shadow " type="text" id="firstname" [(ngModel)]="firstname" name="firstname" required>
+                <!-- <input formControlName="name" class="shadow appearance-none border rounded w-full py-2 px-2 text-gray-700 leading-tight focus:outline-none focus:shadow " type="text" id="name"  name="name" required> -->
+
+            </div>
+            <div  class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="lastname">Last Name:</label>
+                <input  class="shadow appearance-none border rounded w-full py-2 px-2 text-gray-700 leading-tight focus:outline-none focus:shadow " type="text" id="lastname" [(ngModel)]="lastname" name="lastname" required>
+                <!-- <input formControlName="name" class="shadow appearance-none border rounded w-full py-2 px-2 text-gray-700 leading-tight focus:outline-none focus:shadow " type="text" id="name"  name="name" required> -->
+
+            </div>
+            <div  class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="email">Email:</label>
+                <input class="shadow appearance-none border rounded w-full py-2 px-2 text-gray-700 leading-tight focus:outline-none focus:shadow " type="text" id="email"[(ngModel)]="email" name="email" required>
+                <!-- <input formControlName="email" class="shadow appearance-none border rounded w-full py-2 px-2 text-gray-700 leading-tight focus:outline-none focus:shadow " type="text" id="username" name="email" required> -->
+
+            </div>
+            <div  class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="username">Username:</label>
+                <input class="shadow appearance-none border rounded w-full py-2 px-2 text-gray-700 leading-tight focus:outline-none focus:shadow " type="text" id="username"[(ngModel)]="username" name="username" required>
+                <!-- <input formControlName="email" class="shadow appearance-none border rounded w-full py-2 px-2 text-gray-700 leading-tight focus:outline-none focus:shadow " type="text" id="username" name="email" required> -->
+
+            </div>
+            <div  class="mb-6">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="password">Password:</label>
+                <input  class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow" type="password" id="password" [(ngModel)]="password" name="password" required>
+                <!-- <input formControlName="password" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow" type="password" id="password" name="password" required> -->
+
+            </div>
+            <div class="flex items-center justify-between">
+             
+                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow" type="submit">Signup</button>
+            </div>
+        </form>
+    </div>
+    </div>
+
+
+</div>
+

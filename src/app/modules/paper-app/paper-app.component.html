@@ -1,0 +1,162 @@
+<!-- <p>paper-app works!</p> -->
+
+
+
+<div class="container mx-auto p-6 bg-white rounded shadow-md ">
+
+  <mat-stepper [linear]="isLinear" #stepper>
+    <mat-step [stepControl]="step1FormGroup">
+      <form [formGroup]="step1FormGroup">
+        <ng-template matStepLabel>Applicant</ng-template>
+
+        <!-- Personal Information Section -->
+         <app-custodial-party-accordion-step1 [step1Form]="step1FormGroup" (addIncomeEvent)="saveIncome($event)" (addAssetEvent)="saveAsset($event)"></app-custodial-party-accordion-step1>
+           <!-- <app-custodial-party-accordion-step1></app-custodial-party-accordion-step1> -->
+
+         
+        <!-- Form Actions -->
+        <div class="flex justify-end mt-6">
+          <button type="button" class="bg-gray-300 text-gray-700 py-2 px-4 rounded-md mr-2">Clear</button>
+          <button mat-button matStepperNext  type="button" class="bg-blue-500 text-white py-2 px-4 rounded-md" (click)="submit()">Next</button>
+        </div>
+      </form>
+    </mat-step>
+
+    <mat-step [stepControl]="step2FormGroup">
+      <form [formGroup]="step2FormGroup">
+        <ng-template matStepLabel>NCP Info</ng-template>
+
+        <!-- Personal Information Section -->
+         <!-- <app-custodial-party-accordion-step1></app-custodial-party-accordion-step1> -->
+  <app-custodial-party-accordion-step2 [step2Form]="step2FormGroup" (addIncomeEvent)="saveNcpIncome($event)" (addAssetEvent)="saveNcpAsset($event)" ></app-custodial-party-accordion-step2>
+         
+        <!-- Form Actions -->
+        <div class="flex justify-end mt-6">
+          <button type="button" class="bg-gray-300 text-gray-700 py-2 px-4 rounded-md mr-2">Clear</button>
+          <button mat-button matStepperNext type="button" class="bg-blue-500 text-white py-2 px-4 rounded-md" (click)="step2FormSubmit()">Next</button>
+        </div>
+      </form>
+    </mat-step>
+
+    <mat-step>
+      <form [formGroup]="step3FormGroup">
+        <ng-template matStepLabel>Support</ng-template>
+
+        <!-- Personal Information Section -->
+         <!-- <app-custodial-party-accordion-step1></app-custodial-party-accordion-step1> -->
+  <app-custodial-party-accordion-step3 [step3Form]="step3FormGroup" (addChildEvent)="saveChild($event)"></app-custodial-party-accordion-step3>
+         
+        <!-- Form Actions -->
+        <div class="flex justify-end mt-6">
+          <button type="button" class="bg-gray-300 text-gray-700 py-2 px-4 rounded-md mr-2">Clear</button>
+          <button  mat-button matStepperNext type="button" class="bg-blue-500 text-white py-2 px-4 rounded-md" (click)="step3FormSubmit()">Next</button>
+        </div>
+      </form>
+    </mat-step>
+
+    <mat-step>
+      <form [formGroup]="step4FormGroup">
+        <ng-template matStepLabel>Insurance</ng-template>
+
+        <!-- Personal Information Section -->
+         <!-- <app-custodial-party-accordion-step1></app-custodial-party-accordion-step1> -->
+  <app-custodial-party-accordion-step4 [step4Form]="step4FormGroup" (addInsuranceEvent)="saveInsurance($event)"></app-custodial-party-accordion-step4>
+         
+        <!-- Form Actions -->
+        <div class="flex justify-end mt-6">
+          <button type="button" class="bg-gray-300 text-gray-700 py-2 px-4 rounded-md mr-2">Clear</button>
+          <button mat-button matStepperNext type="button" class="bg-blue-500 text-white py-2 px-4 rounded-md" (click)="step4FormSubmit()">Next</button>
+        </div>
+      </form>
+    </mat-step>
+
+    <mat-step>
+      <form [formGroup]="step5FormGroup">
+        <ng-template matStepLabel>File Upload</ng-template>
+
+        <!-- Personal Information Section -->
+         <!-- <app-custodial-party-accordion-step1></app-custodial-party-accordion-step1> -->
+  <app-custodial-party-accordion-step5 [step5Form]="step5FormGroup" (fileSelected)="onFileSelected($event)" ></app-custodial-party-accordion-step5>
+         
+        <!-- Form Actions -->
+        <div class="flex justify-end mt-6">
+          <button type="button" class="bg-gray-300 text-gray-700 py-2 px-4 rounded-md mr-2">Clear</button>
+          <button mat-button matStepperNext type="button" class="bg-blue-500 text-white py-2 px-4 rounded-md" (click)="step5FormSubmit()">Next</button>
+        </div>
+      </form>
+    </mat-step>
+
+    <mat-step>
+      <form >
+        <ng-template matStepLabel>Success</ng-template>
+
+        <!-- Personal Information Section -->
+         <!-- <app-custodial-party-accordion-step1></app-custodial-party-accordion-step1> -->
+  
+         <div>
+          <Label class="flex justify-center mt-2 font-bold">
+            Your application has been submitted successfully! 
+          </Label>
+         </div>
+      
+        <!-- Form Actions -->
+        <div class="flex justify-end mt-6">
+          <!-- <button type="button" class="bg-gray-300 text-gray-700 py-2 px-4 rounded-md mr-2">Clear</button> -->
+          <button type="button" class="bg-blue-500 text-white py-2 px-4 rounded-md" (click)="onClickDashboard()">Navigate to Home Page</button>
+        </div>
+      </form>
+    </mat-step>
+
+  </mat-stepper>
+   
+  </div>
+  
+  
+
+
+<!-- <div class="flex">
+   <div> -->
+
+      
+
+<!-- <form class="max-w-md mx-auto flex items-center">
+    <div class="relative z-0 w-full mb-5 group">
+        <input type="email" name="floating_email" id="floating_email" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+        <label for="floating_email" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Email address</label>
+    </div>
+    <div class="relative z-0 w-full mb-5 group">
+        <input type="password" name="floating_password" id="floating_password" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+        <label for="floating_password" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Password</label>
+    </div>
+    <div class="relative z-0 w-full mb-5 group">
+        <input type="password" name="repeat_password" id="floating_repeat_password" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+        <label for="floating_repeat_password" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Confirm password</label>
+    </div>
+    <div class="grid md:grid-cols-2 md:gap-6">
+      <div class="relative z-0 w-full mb-5 group">
+          <input type="text" name="floating_first_name" id="floating_first_name" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+          <label for="floating_first_name" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">First name</label>
+      </div>
+      <div class="relative z-0 w-full mb-5 group">
+          <input type="text" name="floating_last_name" id="floating_last_name" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+          <label for="floating_last_name" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Last name</label>
+      </div>
+    </div>
+    <div class="grid md:grid-cols-2 md:gap-6">
+      <div class="relative z-0 w-full mb-5 group">
+          <input type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" name="floating_phone" id="floating_phone" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+          <label for="floating_phone" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Phone number (123-456-7890)</label>
+      </div>
+      <div class="relative z-0 w-full mb-5 group">
+          <input type="text" name="floating_company" id="floating_company" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+          <label for="floating_company" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Company (Ex. Google)</label>
+      </div>
+    </div>
+    <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
+  </form> -->
+  
+  
+
+
+<!-- </div>
+</div> -->

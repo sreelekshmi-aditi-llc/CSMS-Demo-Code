@@ -1,0 +1,357 @@
+<div class="container mx-auto p-6 bg-white rounded shadow-md ">
+  <mat-accordion>
+
+    <form [formGroup]="step3Form">
+      <mat-expansion-panel (opened)="panelOpenState.set(true)" (closed)="panelOpenState.set(false)">
+        <mat-expansion-panel-header class="bg-gray-100">
+          <mat-panel-title class=""> Relationship between CP and NCP</mat-panel-title>
+          <mat-panel-description>
+            <!-- Currently I am {{panelOpenState() ? 'open' : 'closed'}} -->
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <!-- <app-relationship-between-cp-and-ncp></app-relationship-between-cp-and-ncp> -->
+        <!-- <app-noncustodial-party-information></app-noncustodial-party-information> -->
+  
+        <fieldset class="mb-6">
+          <!-- <legend class="text-lg font-semibold">Custodial Party Alternative Name</legend> -->
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div>
+              <!-- <label class="block text-sm font-medium">State</label> -->
+              <select formControlName="relationship" class="w-full mt-1 p-2 border-0 border-b-2 focus:outline-none focus:ring-0 focus:border-black">
+                <option value="">Relationship</option>
+                <!-- Add state options here -->
+                <option value="separated">Separated</option>
+                <option value="married">Married</option>
+                <option value="divorced">Divorced</option>
+              </select>
+            </div>
+            <div>
+              <input formControlName="date_married" type="date"
+                class="w-full mt-1 p-2 border-0 border-b-2 focus:outline-none focus:ring-0 focus:border-black"
+                placeholder="Date Married"/>
+            </div>
+            <div>
+              <input formControlName="date_separated" type="date"
+                class="w-full mt-1 p-2 border-0 border-b-2 focus:outline-none focus:ring-0 focus:border-black"
+                placeholder="Date Separated"/>
+            </div>
+            <div>
+              <!-- <label class="block text-sm font-medium">State</label> -->
+              <select formControlName="country_separated" class="w-full mt-1 p-2 border-0 border-b-2 focus:outline-none focus:ring-0 focus:border-black">
+                <option value="">Country Separated</option>
+                <!-- Add state options here -->
+                <option value="Country 1">Country 1</option>
+                <option value="Country 2">Country 2</option>
+                <option value="Country 3">Country 3</option>
+              </select>
+            </div>
+
+            <div>
+              <!-- <label class="block text-sm font-medium">State</label> -->
+              <select formControlName="state_separated" class="w-full mt-1 p-2 border-0 border-b-2 focus:outline-none focus:ring-0 focus:border-black">
+                <option value="">State Separated</option>
+                <!-- Add state options here -->
+                <option value="State 1">State 1</option>
+                <option value="State 2">State 2</option>
+                <option value="State 3">State 3</option>
+              </select>
+            </div>
+            <div>
+              <!-- <label class="block text-sm font-medium">State</label> -->
+              <select formControlName="county_separated" class="w-full mt-1 p-2 border-0 border-b-2 focus:outline-none focus:ring-0 focus:border-black">
+                <option value="">County Separated</option>
+                <!-- Add County options here -->
+                <option value="County 1">County 1</option>
+                <option value="County 2">County 2</option>
+                <option value="County 3">County 3</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-sm font-medium">Divorce proceedings by attorney/by court action pending?</label>
+              <div class="flex items-center mt-1">
+                <input formControlName="divorce_pending" type="radio" name="divorce_pending" value="yes" class="ml-4 mr-2" checked />
+                Yes
+                <input formControlName="divorce_pending" type="radio" name="divorce_pending" value="no"
+                  class="mr-2" /> No
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-sm font-medium">Is child support included in this action?</label>
+              <div class="flex items-center mt-1">
+                <input formControlName="child_support_included" type="radio" name="child_support_included" value="yes" class="ml-4 mr-2" checked />
+                Yes
+                <input formControlName="child_support_included" type="radio" name="child_support_included" value="no"
+                  class="mr-2" /> No
+              </div>
+            </div>
+
+          </div>
+        </fieldset>
+  
+  
+      </mat-expansion-panel>
+  
+      <mat-expansion-panel (opened)="panelOpenState.set(true)" (closed)="panelOpenState.set(false)">
+        <mat-expansion-panel-header class="bg-gray-100">
+          <mat-panel-title class="">Child Information</mat-panel-title>
+          <mat-panel-description>
+            <!-- Currently I am {{panelOpenState() ? 'open' : 'closed'}} -->
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+  
+        <div class="flex w-full justify-normal p-2" *ngIf="!showChildForm">
+          <div>
+            <button type="button"
+              class="shadow-md border-b-2 text-white bg-blue-950 hover:bg-blue-900 py-2 px-4 rounded-sm mr-2" (click)="addChildForm()">Add
+              Child</button>
+  
+          </div>
+        </div>
+  
+        <fieldset class="mb-6" *ngIf="showChildForm">
+          <div [formGroup]="childForm" >
+             <div  class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+              <div>
+                <input id="firstName" formControlName= "firstName" type="text"
+                  class="w-full mt-1 p-2 border-0 border-b-2 focus:outline-none focus:ring-0 focus:border-black"
+                  placeholder="First Name"/>
+              </div>
+              <div>
+                <input formControlName="middleName" type="text"
+                  class="w-full mt-1 p-2 border-0 border-b-2 focus:outline-none focus:ring-0 focus:border-black"
+                  placeholder="Middle Name" />
+              </div>
+              <div>
+                <input formControlName="lastName" type="text" id="lastName"
+                  class="w-full mt-1 p-2 border-0 border-b-2 focus:outline-none focus:ring-0 focus:border-black"
+                  placeholder="Last Name" />
+              </div>
+              <div>
+                <input formControlName="suffix" type="text"
+                  class="w-full mt-1 p-2 border-0 border-b-2 focus:outline-none focus:ring-0 focus:border-black"
+                  placeholder="Suffix" />
+              </div>
+              <div>
+                <select formControlName="race" id="race"
+                  class="w-full mt-1 p-2 border-0 border-b-2 focus:outline-none focus:ring-0 focus:border-black"  >
+                  <option value="">Select Race</option>
+                  <option value="White">White</option>
+    
+                  <!-- Add race options here -->
+                </select>
+              </div>
+    
+              <div>
+                <!-- <label class="block text-sm font-medium">Race</label> -->
+                <select formControlName="relationshipToApplicant"
+                  class="w-full mt-1 p-2 border-0 border-b-2 focus:outline-none focus:ring-0 focus:border-black">
+                  <option value="">Relationship to Applicant</option>
+                  <!-- Add relationship options here -->
+                </select>
+              </div>
+    
+              <div>
+                <!-- <label class="block text-sm font-medium">Race</label> -->
+                <select formControlName="conceptionOccurredState"
+                  class="w-full mt-1 p-2 border-0 border-b-2 focus:outline-none focus:ring-0 focus:border-black">
+                  <option value="">Conception Occurred State</option>
+                  <!-- Add relationship options here -->
+                </select>
+              </div>
+              <div>
+                <!-- <label class="block text-sm font-medium">Gender</label> -->
+                <select formControlName="gender" id="gender"
+                  class="w-full mt-1 p-2 border-0 border-b-2 focus:outline-none focus:ring-0 focus:border-black" >
+                  <option value="">Select Gender</option>
+                  <option value="male">Male</option>
+                  <option value="female">Female</option>
+                  <option value="female">Other</option>
+                </select>
+              </div>
+    
+              <div>
+                <!-- <label class="block text-sm font-medium">Gender</label> -->
+                <select formControlName="state"
+                  class="w-full mt-1 p-2 border-0 border-b-2 focus:outline-none focus:ring-0 focus:border-black">
+                  <option value="">Birth State</option>
+                  <option value="male">State 1</option>
+                  <option value="female">State 2</option>
+                  <option value="female">State 3</option>
+                </select>
+              </div>
+    
+              <div>
+                <!-- <label class="block text-sm font-medium">Gender</label> -->
+                <select formControlName="county"
+                  class="w-full mt-1 p-2 border-0 border-b-2 focus:outline-none focus:ring-0 focus:border-black">
+                  <option value="">Birth County</option>
+                  <option value="male">County 1</option>
+                  <option value="female">County 2</option>
+                  <option value="female">County 3</option>
+                </select>
+              </div>
+    
+              <div>
+                <!-- <label class="block text-sm font-medium">Gender</label> -->
+                <select formControlName="city"
+                  class="w-full mt-1 p-2 border-0 border-b-2 focus:outline-none focus:ring-0 focus:border-black">
+                  <option value="">Birth City</option>
+                  <option value="male">City 1</option>
+                  <option value="female">City 2</option>
+                  <option value="female">City 3</option>
+                </select>
+              </div>
+              <div>
+                <!-- <label class="block text-sm font-medium">SSN/TIN</label> -->
+                <input formControlName="ssn" type="text" id="ssn"
+                  class="w-full mt-1 p-2 border-0 border-b-2 focus:outline-none focus:ring-0 focus:border-black"
+                  placeholder="SSN"  />
+              </div>
+              <div>
+                <input formControlName="dob" type="date" id="dob"
+                  class="w-full mt-1 p-2 border-0 border-b-2 focus:outline-none focus:ring-0 focus:border-black"
+                  placeholder="DOB" />
+              </div>
+    
+              <div>
+                <label class="block text-sm font-medium">Was the Mother Married to the father at the time of child
+                  birth?</label>
+                <div class="flex items-center mt-1">
+                  <input formControlName="mother_married_father" type="radio" name="mother_married_father" value="no"
+                    class="ml-4 mr-2" checked /> No
+                  <input formControlName="mother_married_father" type="radio" name="mother_married_father" value="yes"
+                    class="mr-2" /> Yes
+                </div>
+              </div>
+              <div>
+                <label class="block text-sm font-medium">Is there an order for CHILD SUPPORT for this child?</label>
+                <div class="flex items-center mt-1">
+                  <input formControlName="order_for_childSupport" type="radio" name="order_for_childSupport" value="no"
+                    class="ml-4 mr-2" checked /> No
+                  <input formControlName="order_for_childSupport" type="radio" name="order_for_childSupport" value="yes"
+                    class="mr-2" /> Yes
+                </div>
+              </div>
+              <div>
+                <label class="block text-sm font-medium">Does the Noncustodial Parent pay support?</label>
+                <div class="flex items-center mt-1">
+                  <input formControlName="ncp_pay_support" type="radio" name="ncp_pay_support" value="no" class="ml-4 mr-2"
+                    checked /> No
+                  <input formControlName="ncp_pay_support" type="radio" name="ncp_pay_support" value="yes" class="mr-2" />
+                  Yes
+                </div>
+              </div>
+              <div>
+                <label class="block text-sm font-medium">To whom does the Noncustodial Party pay support?</label>
+                <div class="flex items-center mt-1">
+                  <input formControlName="ncp_pay" type="radio" name="ncp_pay" value="to you" class="ml-4 mr-2" checked />
+                  To You
+                  <input formControlName="ncp_pay" type="radio" name="ncp_pay" value="To a Child Support Agency"
+                    class="mr-2" /> To a Child Support Agency
+                  <input formControlName="ncp_pay" type="radio" name="ncp_pay" value="Other" class="mr-2" /> Other
+                </div>
+              </div>
+              <div class="flex w-full justify-normal p-2">
+                <div>
+                  <button type="button"
+                    class="shadow-md border-b-2 text-white bg-blue-950 hover:bg-blue-900 py-2 px-4 rounded-sm mr-2" (click)="addChild()">Save</button>
+    
+                </div>
+              </div>
+             </div>
+            
+          </div>
+        </fieldset>
+  
+  <!-- Table to display saved children -->
+  <!-- <table *ngIf="children.length > 0">
+    <thead> -->
+      <!-- <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>SSN</th>
+        <th>Race</th>
+        <th>Date of Birth</th>
+        <th>Gender</th>
+        <th>Delete</th>
+      </tr>
+    </thead> -->
+    <!-- <tbody>
+      <tr *ngFor="let child of children.value; let i = index">
+        <td>{{ child.firstName }}</td>
+        <td>{{ child.lastName }}</td>
+        <td>{{ child.ssn }}</td>
+        <td>{{ child.race }}</td>
+        <td>{{ child.dob }}</td>
+        <td>{{ child.gender }}</td>
+        <td> -->
+          <!-- <button mat-icon-button color="warn" (click)="deleteChild(i)">Delete</button> -->
+          <!-- <button mat-icon-button color="primary">Update</button> -->
+        <!-- </td>
+      </tr>
+    </tbody>
+  </table> -->
+
+  <!-- MatTable -->
+  <table *ngIf="children.length > 0" mat-table [dataSource]="children.value" class="mat-elevation-z8 demo-table">
+   
+  
+    <!-- firstName Column -->
+    <ng-container matColumnDef="firstName">
+      <th mat-header-cell *matHeaderCellDef>First Name</th>
+      <td mat-cell *matCellDef="let child">{{child.firstName}}</td>
+    </ng-container>
+
+       <!-- LastName Column -->
+       <ng-container matColumnDef="lastName">
+        <th mat-header-cell *matHeaderCellDef>Last Name</th>
+        <td mat-cell *matCellDef="let child">{{child.lastName}}</td>
+      </ng-container>
+  
+    <!-- ssn Column -->
+    <ng-container matColumnDef="ssn">
+      <th mat-header-cell *matHeaderCellDef>SSN</th>
+      <td mat-cell *matCellDef="let child">{{child.ssn}}</td>
+    </ng-container>
+
+    <!-- Race Column -->
+    <ng-container matColumnDef="race">
+      <th mat-header-cell *matHeaderCellDef>Race</th>
+      <td mat-cell *matCellDef="let child">{{child.race}}</td>
+    </ng-container>
+
+    <!-- Date of Birth Column -->
+    <ng-container matColumnDef="dob">
+      <th mat-header-cell *matHeaderCellDef>Date of Birth</th>
+      <td mat-cell *matCellDef="let child">{{child.dob}}</td>
+    </ng-container>
+    <!-- gender Column -->
+    <ng-container matColumnDef="gender">
+      <th mat-header-cell *matHeaderCellDef>Gender</th>
+      <td mat-cell *matCellDef="let child">{{child.gender}}</td>
+    </ng-container>
+  
+    <!-- Actions Column -->
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef>Actions</th>
+      <td mat-cell *matCellDef="let i = index">
+        <button mat-icon-button color="warn" (click)="deleteChild(i)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="['firstName','lastName', 'ssn', 'race','dob', 'gender', 'actions']"></tr>
+    <tr mat-row *matRowDef="let row; columns: ['firstName','lastName', 'ssn', 'race','dob', 'gender', 'actions'];"></tr>
+  </table>
+
+
+      </mat-expansion-panel>
+    </form>
+
+    
+
+
+  </mat-accordion>
+</div>

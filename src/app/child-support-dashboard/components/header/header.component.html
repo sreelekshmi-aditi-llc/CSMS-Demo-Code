@@ -1,0 +1,86 @@
+<!-- <div class="bg-[#273F73] text-white flex justify-between items-center p-4">
+    <div class="text-lg font-bold">
+      <img src="assets/dhs-logo.png" alt="DHS Logo" class="inline-block h-8 mr-2">
+      Child Support Management System
+    </div>
+    <div class="flex items-center space-x-4">
+      <input type="text" placeholder="Search Case Number" class="p-2 rounded">
+      <button class="bg-red-600 p-2 rounded">Go</button>
+      <button class="bg-gray-200 text-blue-800 p-2 rounded">Clear</button>
+      <button class="bg-gray-600 p-2 rounded text-white">Alerts</button>
+      <button class="bg-gray-600 p-2 rounded text-white">Prompts</button>
+      <button class="bg-gray-600 p-2 rounded text-white">Contact Support</button>
+      <span class="text-white">crystal.thomas</span>
+    </div>
+  </div> -->
+  
+  <header class="bg-[#273F73] text-white">
+    <div class="flex justify-between p-2">
+      <!-- Logo -->
+      
+        <div class="flex items-center space-x-2">
+        <img src="" alt="DHS Logo" class="h-12">
+      </div>
+
+      <!-- Center: Title -->
+  <div class="text-white text-2xl font-semibold">
+    CHILD SUPPORT MANAGEMENT SYSTEM
+  </div>
+
+  <!-- Right Side: Think Logo -->
+  <div class="flex items-center space-x-2">
+    <img src="" alt="Think Logo" class="h-12">
+  </div>
+    </div>
+    
+    <div class="flex justify-between items-center space-x-2 bg-[#F0F2F1] p-1 shadow-md border-b-4 border-[#ADADAD]">
+            <!-- Search Bar -->
+    <div class="flex justify-between items-center">
+      <input
+        type="text"
+        placeholder="Search Case Number"
+        class="px-2 py-1 text-black rounded"
+      />
+      <button class="bg-[#273F73] text-white px-4 py-1 rounded">Go</button>
+      <button class="bg-[#E15141] text-white px-4 py-1 rounded">Clear</button>
+    </div>
+    <!-- Additional Links -->
+    <div class="hidden md:flex space-x-4 text-black">
+      <button class="hover:text-gray-400">ADV Search</button>
+      <button class="hover:text-gray-400">Document Generation</button>
+      <button class="hover:text-gray-400">SSP</button>
+      <button class="hover:text-gray-400">DVR</button>
+      <button class="hover:text-gray-400">File Management</button>
+      <button class="hover:text-gray-400">Enterprise Search</button>
+      <button class="hover:text-gray-400">Reports</button>
+    </div>
+
+    <!-- Right Section: User Info and Notifications -->
+  <div class="flex items-center space-x-4 text-black">
+    <button class="hover:text-gray-400">Alerts</button>
+    <button class="hover:text-gray-400">Prompts</button>
+    <button class="hover:text-gray-400">Contact Support</button>
+    <div class="flex items-center space-x-2">
+      <span class="text-black">crystal.thomas</span>
+      <img src="" alt="User Icon" class="h-6">
+      <button class="hover:text-gray-400" (click)="onClickLogout()">Logout</button>
+
+    </div>
+  </div>
+
+    </div>
+
+    <div class="">
+       <!-- Secondary Navigation -->
+  <nav class="hidden md:flex space-x-4 bg-[#F1F1F1] text-gray-600 shadow-md  items-center justify-between">
+    <button class="text-white bg-[#273F73] border-r-2 border-r-[#FDFDFD] border-b-4 border-purple-600 px-4 py-2" (click)="onClickDashboard()">Dashboard</button>
+    <button class="px-4 py-2 border-r-2 border-r-[#FDFDFD]  border-b-4 border-[#DD762D]">Case Management</button>
+    <button class="px-4 py-2 border-r-2 border-r-[#FDFDFD] border-b-4 border-[#B97C77]">Locate</button>
+    <button class="px-4 py-2 border-b-4 border-r-2 border-r-[#FDFDFD]  border-[#E2C8C7]">Intergovernmental</button>
+    <button class="px-4 py-2 border-b-4 border-r-2 border-r-[#FDFDFD] border-[#B7D681]">Establishment</button>
+    <button class="px-4 py-2 border-b-4 border-r-2 border-r-[#FDFDFD]  border-[#5A7A39]">Enforcement</button>
+    <button class="px-4 py-2 border-b-4 border-r-2 border-r-[#FDFDFD] border-[#765EC4]">Financial Management</button>
+  </nav>
+    </div>
+    <!-- <button class="md:hidden text-white">Menu</button> -->
+  </header>

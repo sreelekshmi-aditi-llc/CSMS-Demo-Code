@@ -1,0 +1,859 @@
+<div class="container mx-auto p-6 bg-white rounded shadow-md ">
+
+  <!-- <div [formGroup]="step1Form"> -->
+    <!-- <form [formGroup]="step1Form"> -->
+    <mat-accordion>
+      <form [formGroup]="step1Form">
+        <mat-expansion-panel (opened)="panelOpenState.set(true)" (closed)="panelOpenState.set(false)">
+          <mat-expansion-panel-header class="bg-gray-100">
+            <mat-panel-title class=""> Personal Information</mat-panel-title>
+            <mat-panel-description>
+              <!-- Currently I am {{panelOpenState() ? 'open' : 'closed'}} -->
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+      
+          <!-- <app-personal-information></app-personal-information> -->
+      
+      
+          <fieldset class="mb-6">
+            <legend class="text-lg font-semibold">Personal Information</legend>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
+              <div>
+                <input id="firstname" formControlName="firstName" type="text"
+                  class="w-full mt-1 p-2 border-0 border-b-2 focus:outline-none focus:ring-0 focus:border-black"
+                  placeholder="First Name" />
+              </div>
+              <div>
+                <input formControlName="middleName" type="text"
+                  class="w-full mt-1 p-2 border-0 border-b-2 focus:outline-none focus:ring-0 focus:border-black"
+                  placeholder="Middle Name" />
+              </div>
+              <div>
+                <input formControlName="lastName" type="text"
+                  class="w-full mt-1 p-2 border-0 border-b-2 focus:outline-none focus:ring-0 focus:border-black"
+                  placeholder="Last Name" />
+              </div>
+              <div>
+                <input formControlName="suffix" type="text"
+                  class="w-full mt-1 p-2 border-0 border-b-2 focus:outline-none focus:ring-0 focus:border-black"
+                  placeholder="Suffix" />
+              </div>
+              <div>
+                <input formControlName="maidenName" type="text"
+                  class="w-full mt-1 p-2 border-0 border-b-2 focus:outline-none focus:ring-0 focus:border-black"
+                  placeholder="Maiden Name" />
+              </div>
+              <div>
+                <input formControlName="nickName" type="text"
+                  class="w-full mt-1 p-2 border-0 border-b-2 focus:outline-none focus:ring-0 focus:border-black"
+                  placeholder="Nickname" />
+              </div>
+              <div>
+                <input formControlName="dob" type="date"
+                  class="w-full mt-1 p-2 border-0 border-b-2 focus:outline-none focus:ring-0 focus:border-black"
+                  placeholder="DOB" />
+              </div>
+              <div>
+                <!-- <label class="block text-sm font-medium">SSN/TIN</label> -->
+                <input formControlName="ssnItin" type="text"
+                  class="w-full mt-1 p-2 border-0 border-b-2 focus:outline-none focus:ring-0 focus:border-black"
+                  placeholder="SSN/ITIN" />
+              </div>
+              <div>
+                <!-- <label class="block text-sm font-medium">Gender</label> -->
+                <select formControlName="gender" class="w-full mt-1 p-2 border-0 border-b-2 focus:outline-none focus:ring-0 focus:border-black">
+                  <option value="">Select Gender</option>
+                  <option value="male">Male</option>
+                  <option value="female">Female</option>
+                  <option value="female">Female</option>
+                </select>
+              </div>
+              <div>
+                <select formControlName="race"  class="w-full mt-1 p-2 border-0 border-b-2 focus:outline-none focus:ring-0 focus:border-black">
+                  <option value="">Select Race</option>
+                  <!-- Add race options here -->
+                </select>
+              </div>
+      
+      
+              <div>
+                <!-- <label class="block text-sm font-medium">Race</label> -->
+                <select formControlName="relationshipToChild" class="w-full mt-1 p-2 border-0 border-b-2 focus:outline-none focus:ring-0 focus:border-black">
+                  <option value="">Relationship to child</option>
+                  <!-- Add relationship options here -->
+                </select>
+              </div>
+      
+            </div>
+          </fieldset>
+      
+          <!-- Custodial Party Alternative Name Section -->
+          <fieldset class="mb-6">
+            <legend class="text-lg font-semibold">Custodial Party Alternative Name</legend>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+              <div>
+                <!-- <label class="block text-sm font-medium">First Name</label> -->
+                <input formControlName="cpAlternativeFirstName" type="text"
+                  class="w-full mt-1 p-2 border-0 border-b-2 focus:outline-none focus:ring-0 focus:border-black"
+                  placeholder="First Name" />
+              </div>
+              <div>
+                <!-- <label class="block text-sm font-medium">Middle Name</label> -->
+                <input formControlName="cpAlternativeMiddleName" type="text"
+                  class="w-full mt-1 p-2 border-0 border-b-2 focus:outline-none focus:ring-0 focus:border-black"
+                  placeholder="Middle Name" />
+              </div>
+              <div>
+                <!-- <label class="block text-sm font-medium">Last Name</label> -->
+                <input formControlName="cpAlternativeLastName" type="text"
+                  class="w-full mt-1 p-2 border-0 border-b-2 focus:outline-none focus:ring-0 focus:border-black"
+                  placeholder="Last Name" />
+              </div>
+              <div>
+                <!-- <label class="block text-sm font-medium">Suffix</label> -->
+                <input formControlName="cpAlternativeSuffix" type="text"
+                  class="w-full mt-1 p-2 border-0 border-b-2 focus:outline-none focus:ring-0 focus:border-black"
+                  placeholder="Suffix" />
+              </div>
+            </div>
+          </fieldset>
+      
+          <!-- Applicant Mailing Address Section -->
+          <fieldset class="mb-6">
+            <legend class="text-lg font-semibold">Applicant Mailing Address</legend>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+              <div>
+                <!-- <label class="block text-sm font-medium">Source</label> -->
+                <input formControlName="mailing_address_source" type="text"
+                  class="w-full mt-1 p-2 border-0 border-b-2 focus:outline-none focus:ring-0 focus:border-black"
+                  placeholder="Source" />
+              </div>
+              <div>
+                <label class="block text-sm font-medium">International Address?</label>
+                <div class="flex items-center mt-1">
+                  <input formControlName="mailing_address_interNationalAddress" type="radio" name="mailing_address_interNationalAddress" value="yes" class="mr-2" /> Yes
+                  <input formControlName="mailing_address_interNationalAddress" type="radio" name="mailing_address_interNationalAddress" value="no" class="ml-4 mr-2" checked /> No
+                </div>
+              </div>
+              <div>
+                <label class="block text-sm font-medium">Address Validated</label>
+                <p class="mt-1">No <span class="text-gray-500">ⓘ</span></p>
+              </div>
+              <div>
+                <!-- <label class="block text-sm font-medium">Address Line 1</label> -->
+                <input formControlName="mailing_address_addressLine1" type="text"
+                  class="w-full mt-1 p-2 border-0 border-b-2 focus:outline-none focus:ring-0 focus:border-black"
+                  placeholder="Address Line 1" />
+              </div>
+              <div>
+                <!-- <label class="block text-sm font-medium">Address Line 2</label> -->
+                <input formControlName="mailing_address_addressLine2" type="text"
+                  class="w-full mt-1 p-2 border-0 border-b-2 focus:outline-none focus:ring-0 focus:border-black"
+                  placeholder="Address Line 2" />
+              </div>
+              <div>
+                <!-- <label class="block text-sm font-medium">City</label> -->
+                <input formControlName="mailing_address_city" type="text"
+                  class="w-full mt-1 p-2 border-0 border-b-2 focus:outline-none focus:ring-0 focus:border-black"
+                  placeholder="City" />
+              </div>
+              <div>
+                <!-- <label class="block text-sm font-medium">State</label> -->
+                <select formControlName="mailing_address_state"  class="w-full mt-1 p-2 border-0 border-b-2 focus:outline-none focus:ring-0 focus:border-black">
+                  <option value="">State</option>
+      
+                  <!-- Add state options here -->
+                </select>
+              </div>
+              <div>
+                <!-- <label class="block text-sm font-medium">County</label> -->
+                <select formControlName="mailing_address_county" class="w-full mt-1 p-2 border-0 border-b-2 focus:outline-none focus:ring-0 focus:border-black">
+                  <option value="">County</option>
+                  <!-- Add state options here -->
+                </select>
+              </div>
+      
+              <div>
+                <label class="block text-sm font-medium">Zip Code</label>
+                <input formControlName="mailing_address_zipcode" type="text"
+                  class="w-full mt-1 p-2 border-0 border-b-2 focus:outline-none focus:ring-0 focus:border-black"
+                  placeholder="Zip Code" />
+              </div>
+              <div>
+                <label class="block text-sm font-medium">Country</label>
+                <input formControlName="mailing_address_country" type="text" value="United States of America"
+                  class="w-full mt-1 p-2 border-0 border-b-2 focus:outline-none focus:ring-0 focus:border-black"
+                  readonly />
+              </div>
+      
+            </div>
+          </fieldset>
+      
+          <!-- Additional sections such as Applicant Residential Address, Applicant Nearest Relative Information, etc. can be added similarly -->
+          <!-- Applicant Residential Address Section -->
+          <fieldset class="mb-6">
+            <legend class="text-lg font-semibold">Applicant Residential Address</legend>
+            <div>
+              <!-- Add Checkbox -->
+      
+              <label class="block text-sm font-medium">Residential Address Same as Mailing Address</label>
+      
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+      
+              <div>
+                <!-- <label class="block text-sm font-medium">Source</label> -->
+                <input formControlName="residential_address_source" type="text"
+                  class="w-full mt-1 p-2 border-0 border-b-2 focus:outline-none focus:ring-0 focus:border-black"
+                  placeholder="Source" />
+              </div>
+              <div>
+                <label class="block text-sm font-medium">International Address?</label>
+                <div class="flex items-center mt-1">
+                  <input formControlName="residential_address_interNationalAddress" type="radio" name="residential_address_interNationalAddress" value="no" class="ml-4 mr-2" checked /> No
+                  <input formControlName="residential_address_interNationalAddress" type="radio" name="residential_address_interNationalAddress" value="yes" class="mr-2" /> Yes
+                </div>
+              </div>
+              <div>
+                <label class="block text-sm font-medium">Address Validated</label>
+                <p class="mt-1">No <span class="text-gray-500">ⓘ</span></p>
+              </div>
+              <div>
+                <!-- <label class="block text-sm font-medium">Address Line 1</label> -->
+                <input formControlName="residential_address_addressLine1" type="text"
+                  class="w-full mt-1 p-2 border-0 border-b-2 focus:outline-none focus:ring-0 focus:border-black"
+                  placeholder="Address Line 1" />
+              </div>
+              <div>
+                <!-- <label class="block text-sm font-medium">Address Line 2</label> -->
+                <input formControlName="residential_address_addressLine2" type="text"
+                  class="w-full mt-1 p-2 border-0 border-b-2 focus:outline-none focus:ring-0 focus:border-black"
+                  placeholder="Address Line 2" />
+              </div>
+              <div>
+                <!-- <label class="block text-sm font-medium">City</label> -->
+                <input formControlName="residential_address_city" type="text"
+                  class="w-full mt-1 p-2 border-0 border-b-2 focus:outline-none focus:ring-0 focus:border-black"
+                  placeholder="City" />
+              </div>
+              <div>
+                <!-- <label class="block text-sm font-medium">State</label> -->
+                <select formControlName="residential_address_state" class="w-full mt-1 p-2 border-0 border-b-2 focus:outline-none focus:ring-0 focus:border-black">
+                  <option value="">State</option>
+      
+                  <!-- Add state options here -->
+                </select>
+              </div>
+              <div>
+                <!-- <label class="block text-sm font-medium">County</label> -->
+                <select formControlName="residential_address_county" class="w-full mt-1 p-2 border-0 border-b-2 focus:outline-none focus:ring-0 focus:border-black">
+                  <option value="">County</option>
+                  <!-- Add state options here -->
+                </select>
+              </div>
+      
+              <div>
+                <!-- <label class="block text-sm font-medium">Zip Code</label> -->
+                <input formControlName="residential_address_zipcode" type="text"
+                  class="w-full mt-1 p-2 border-0 border-b-2 focus:outline-none focus:ring-0 focus:border-black"
+                  placeholder="Zip Code" />
+              </div>
+              <div>
+                <label class="block text-sm font-medium">Country</label>
+                <input formControlName="residential_address_country" type="text" value="United States of America"
+                  class="w-full mt-1 p-2 border-0 border-b-2 focus:outline-none focus:ring-0 focus:border-black"
+                  readonly />
+              </div>
+              <div>
+                <!-- <label class="block text-sm font-medium">Zip Code</label> -->
+                <input formControlName="residential_address_homePhone" type="text"
+                  class="w-full mt-1 p-2 border-0 border-b-2 focus:outline-none focus:ring-0 focus:border-black"
+                  placeholder="Home Phone" />
+              </div>
+              <div>
+                <input formControlName="residential_address_businessPhone" type="text"
+                  class="w-full mt-1 p-2 border-0 border-b-2 focus:outline-none focus:ring-0 focus:border-black"
+                  placeholder="Business Phone" />
+              </div>
+              <div>
+                <input formControlName="residential_address_cellPhone" type="text"
+                  class="w-full mt-1 p-2 border-0 border-b-2 focus:outline-none focus:ring-0 focus:border-black"
+                  placeholder="Cell Phone" />
+              </div>
+              <div>
+                <input formControlName="residential_address_email" type="text"
+                  class="w-full mt-1 p-2 border-0 border-b-2 focus:outline-none focus:ring-0 focus:border-black"
+                  placeholder="Email" />
+              </div>
+      
+            </div>
+          </fieldset>
+      
+          <fieldset class="mb-6">
+            <legend class="text-lg font-semibold">Applicant Nearest Relative Information</legend>
+      
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+      
+              <div>
+                <input formControlName="nearest_relative_relationship" type="text"
+                  class="w-full mt-1 p-2 border-0 border-b-2 focus:outline-none focus:ring-0 focus:border-black"
+                  placeholder="Relation to Applicant" />
+              </div>
+      
+              <div>
+                <!-- <label class="block text-sm font-medium">Address Line 1</label> -->
+                <input formControlName="nearest_relative_firstName" type="text"
+                  class="w-full mt-1 p-2 border-0 border-b-2 focus:outline-none focus:ring-0 focus:border-black"
+                  placeholder="First Name" />
+              </div>
+              <div>
+                <!-- <label class="block text-sm font-medium">Address Line 2</label> -->
+                <input formControlName="nearest_relative_lastName" type="text"
+                  class="w-full mt-1 p-2 border-0 border-b-2 focus:outline-none focus:ring-0 focus:border-black"
+                  placeholder="Last Name" />
+              </div>
+              <div>
+                <!-- <label class="block text-sm font-medium">City</label> -->
+                <input formControlName="nearest_relative_phone" type="text"
+                  class="w-full mt-1 p-2 border-0 border-b-2 focus:outline-none focus:ring-0 focus:border-black"
+                  placeholder="Phone" />
+              </div>
+      
+      
+      
+            </div>
+          </fieldset>
+      
+          <fieldset class="mb-6">
+            <legend class="text-lg font-semibold">Relative Address</legend>
+      
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+      
+              <div>
+                <!-- <label class="block text-sm font-medium">Source</label> -->
+                <input formControlName="relative_address_source" type="text"
+                  class="w-full mt-1 p-2 border-0 border-b-2 focus:outline-none focus:ring-0 focus:border-black"
+                  placeholder="Source" />
+              </div>
+              <div>
+                <label class="block text-sm font-medium">International Address?</label>
+                <div class="flex items-center mt-1">
+                  <input formControlName="relative_address_interNationalAddress" type="radio" name="relative_address_interNationalAddress" value="yes" class="mr-2" /> Yes
+                  <input formControlName="relative_address_interNationalAddress" type="radio" name="relative_address_interNationalAddress" value="no" class="ml-4 mr-2" checked /> No
+                </div>
+              </div>
+              <div>
+                <label class="block text-sm font-medium">Address Validated</label>
+                <p class="mt-1">No <span class="text-gray-500">ⓘ</span></p>
+              </div>
+              <div>
+                <!-- <label class="block text-sm font-medium">Address Line 1</label> -->
+                <input formControlName="relative_address_addressLine1" type="text"
+                  class="w-full mt-1 p-2 border-0 border-b-2 focus:outline-none focus:ring-0 focus:border-black"
+                  placeholder="Address Line 1" />
+              </div>
+              <div>
+                <!-- <label class="block text-sm font-medium">Address Line 2</label> -->
+                <input formControlName="relative_address_addressLine2" type="text"
+                  class="w-full mt-1 p-2 border-0 border-b-2 focus:outline-none focus:ring-0 focus:border-black"
+                  placeholder="Address Line 2" />
+              </div>
+              <div>
+                <!-- <label class="block text-sm font-medium">City</label> -->
+                <input formControlName="relative_address_city" type="text"
+                  class="w-full mt-1 p-2 border-0 border-b-2 focus:outline-none focus:ring-0 focus:border-black"
+                  placeholder="City" />
+              </div>
+              <div>
+                <!-- <label class="block text-sm font-medium">State</label> -->
+                <select formControlName="relative_address_state" class="w-full mt-1 p-2 border-0 border-b-2 focus:outline-none focus:ring-0 focus:border-black">
+                  <option value="">State</option>
+      
+                  <!-- Add state options here -->
+                </select>
+              </div>
+              <div>
+                <!-- <label class="block text-sm font-medium">County</label> -->
+                <select formControlName="relative_address_county" class="w-full mt-1 p-2 border-0 border-b-2 focus:outline-none focus:ring-0 focus:border-black">
+                  <option value="">County</option>
+                  <!-- Add state options here -->
+                </select>
+              </div>
+      
+              <div>
+                <!-- <label class="block text-sm font-medium">Zip Code</label> -->
+                <input formControlName="relative_address_zipcode" type="text"
+                  class="w-full mt-1 p-2 border-0 border-b-2 focus:outline-none focus:ring-0 focus:border-black"
+                  placeholder="Zip Code" />
+              </div>
+              <div>
+                <label class="block text-sm font-medium">Country</label>
+                <input formControlName="relative_address_country" type="text" value="United States of America"
+                  class="w-full mt-1 p-2 border-0 border-b-2 focus:outline-none focus:ring-0 focus:border-black"
+                  readonly />
+              </div>
+      
+      
+      
+      
+              <div class="flex items-center mt-1 space-x-4">
+                <label class="block text-sm font-medium">Family Violence?</label>
+                <div class="flex items-center mt-1">
+                  <input formControlName="familyViolence" type="radio" name="familyViolence" value="yes" class="mr-2" /> Yes
+                  <input formControlName="familyViolence" type="radio" name="familyViolence" value="no" class="ml-4 mr-2" checked /> No
+                </div>
+              </div>
+            </div>
+          </fieldset>
+      
+      
+        </mat-expansion-panel>
+      
+        <mat-expansion-panel (opened)="panelOpenState.set(true)" (closed)="panelOpenState.set(false)">
+          <mat-expansion-panel-header class="bg-gray-100">
+            <mat-panel-title> Employer Information</mat-panel-title>
+            <mat-panel-description>
+              <!-- Currently I am {{panelOpenState() ? 'open' : 'closed'}} -->
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+      
+          <!-- <app-employer-information></app-employer-information> -->
+      
+          <fieldset class="mb-6">
+      
+            <div>
+              <label class="block text-sm font-medium">Is the Custodial Party Employed?</label>
+              <div class="flex items-center mt-1">
+                <input formControlName="employer_info_employed" type="radio" name="employer_info_employed" value="yes" class="mr-2" /> Yes
+                <input formControlName="employer_info_employed" type="radio" name="employer_info_employed" value="no" class="ml-4 mr-2" checked /> No
+                <input formControlName="employer_info_employed" type="radio" name="employer_info_employed" value="unknown" class="ml-4 mr-2" checked /> Unknown
+      
+              </div>
+            </div>
+          </fieldset>
+      
+      
+        </mat-expansion-panel>
+      
+        <mat-expansion-panel (opened)="panelOpenState.set(true)" (closed)="panelOpenState.set(false)">
+          <mat-expansion-panel-header class="bg-gray-100">
+            <mat-panel-title> Custodial Party Income Information</mat-panel-title>
+            <mat-panel-description>
+              <!-- Currently I am {{panelOpenState() ? 'open' : 'closed'}} -->
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+      
+          <!-- <app-custodial-party-income-information></app-custodial-party-income-information> -->
+      
+          <fieldset class="mb-6">
+            <!-- <legend class="text-lg font-semibold">Personal Information</legend> -->
+           <div [formGroup]="incomeForm">
+             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+       
+               <div>
+                 <!-- <label class="block text-sm font-medium">Gender</label> -->
+                 <select formControlName="incom_info_type" class="w-full mt-1 p-2 border-0 border-b-2 focus:outline-none focus:ring-0 focus:border-black">
+                   <option value="">Income Type</option>
+                   <option value="salary">Salary</option>
+                   <option value="self_employed">Self Employed</option>
+                 </select>
+               </div>
+       
+               <div>
+                 <!-- <label class="block text-sm font-medium">Gender</label> -->
+                 <select formControlName="incom_info_frequency" class="w-full mt-1 p-2 border-0 border-b-2 focus:outline-none focus:ring-0 focus:border-black">
+                   <option value="">Income Frequency</option>
+                   <option value="Weekly">Weekly</option>
+                   <option value="monthly">Monthly</option>
+                 </select>
+               </div>
+               <div>
+                 <input formControlName="incom_info_amount" type="number"
+                   class="w-full mt-1 p-2 border-0 border-b-2 focus:outline-none focus:ring-0 focus:border-black"
+                   placeholder="$ Income Amount" />
+               </div>
+       
+       
+       
+               <div>
+                 <button type="button"
+                   class="shadow-md border-b-2 text-gray-700 hover:bg-gray-50 py-2 px-4 rounded-sm mr-2" (click)="addIncome()" >Add</button>
+       
+               </div>
+               <div>
+                 <label class="block text-sm font-medium">Total Income: ${{totalIncome}}</label>
+       
+               </div>
+             </div>
+
+           </div>
+          </fieldset>
+      <!-- MatTable -->
+  <table *ngIf="income.length > 0" mat-table [dataSource]="income.value" class="mat-elevation-z8 demo-table">
+   
+  
+    <!-- firstName Column -->
+    <ng-container matColumnDef="incom_info_type">
+      <th mat-header-cell *matHeaderCellDef>Income Type</th>
+      <td mat-cell *matCellDef="let income">{{income.incom_info_type}}</td>
+    </ng-container>
+
+       <!-- LastName Column -->
+       <ng-container matColumnDef="incom_info_frequency">
+        <th mat-header-cell *matHeaderCellDef>Income Frequency</th>
+        <td mat-cell *matCellDef="let income">{{income.incom_info_frequency}}</td>
+      </ng-container>
+  
+    <!-- ssn Column -->
+    <ng-container matColumnDef="incom_info_amount">
+      <th mat-header-cell *matHeaderCellDef>Income Amount</th>
+      <td mat-cell *matCellDef="let income">{{income.incom_info_amount}}</td>
+    </ng-container>
+
+  
+    <!-- Actions Column -->
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef>Actions</th>
+      <td mat-cell *matCellDef="let i = index">
+        <button mat-icon-button color="warn" (click)="deleteIncome(i)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="['incom_info_type','incom_info_frequency', 'incom_info_amount', 'actions']"></tr>
+    <tr mat-row *matRowDef="let row; columns: ['incom_info_type','incom_info_frequency', 'incom_info_amount', 'actions'];"></tr>
+  </table>
+        </mat-expansion-panel>
+      
+        <mat-expansion-panel (opened)="panelOpenState.set(true)" (closed)="panelOpenState.set(false)">
+          <mat-expansion-panel-header class="bg-gray-100">
+            <mat-panel-title> Benefit Information</mat-panel-title>
+            <mat-panel-description>
+              <!-- Currently I am {{panelOpenState() ? 'open' : 'closed'}} -->
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+      
+          <!-- <app-benefit-information></app-benefit-information> -->
+      
+          <fieldset class="mb-6">
+            <!-- <legend class="text-lg font-semibold">Applicant Mailing Address</legend> -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
+      
+              <div>
+                <label class="block text-sm font-medium">Current Temporary Cash Assistance (TCA) Recipient?</label>
+                <div class="flex items-center mt-1">
+                  <input formControlName="currentTcaRecipient" type="radio" name="currentTcaRecipient" value="yes" class="mr-2" /> Yes
+                  <input formControlName="currentTcaRecipient" type="radio" name="currentTcaRecipient" value="no" class="ml-4 mr-2" checked /> No
+                </div>
+              </div>
+      
+              <div>
+                <label class="block text-sm font-medium">Current Medical Assistance (MA) Recipient?</label>
+                <div class="flex items-center mt-1">
+                  <input formControlName="currentMaRecipient" type="radio" name="currentMaRecipient" value="yes" class="mr-2" /> Yes
+                  <input formControlName="currentMaRecipient" type="radio" name="currentMaRecipient" value="no" class="ml-4 mr-2" checked /> No
+                </div>
+              </div>
+      
+              <div>
+                <label class="block text-sm font-medium">Former Temporary Cash Assistance (TCA) Recipient?</label>
+                <div class="flex items-center mt-1">
+                  <input formControlName="formerTcaRecipient" type="radio" name="formerTcaRecipient" value="yes" class="mr-2" /> Yes
+                  <input formControlName="formerTcaRecipient" type="radio" name="formerTcaRecipient" value="no" class="ml-4 mr-2" checked /> No
+                </div>
+              </div>
+      
+              <div>
+                <label class="block text-sm font-medium">Former Medical Assistance (MA) Recipient?</label>
+                <div class="flex items-center mt-1">
+                  <input formControlName="formerMaRecipient" type="radio" name="formerMaRecipient" value="yes" class="mr-2" /> Yes
+                  <input formControlName="formerMaRecipient" type="radio" name="formerMaRecipient" value="no" class="ml-4 mr-2" checked /> No
+                </div>
+              </div>
+      
+              <div>
+                <label class="block text-sm font-medium">Temporary Cash Assistance (TCA) Applicant?</label>
+                <div class="flex items-center mt-1">
+                  <input formControlName="tcaApplicant" type="radio" name="tcaApplicant" value="yes" class="mr-2" /> Yes
+                  <input formControlName="tcaApplicant" type="radio" name="tcaApplicant" value="no" class="ml-4 mr-2" checked /> No
+                </div>
+              </div>
+      
+              <div>
+                <label class="block text-sm font-medium">Medical Assistance (MA) Applicant?</label>
+                <div class="flex items-center mt-1">
+                  <input formControlName="maApplicant" type="radio" name="maApplicant" value="yes" class="mr-2" /> Yes
+                  <input formControlName="maApplicant" type="radio" name="maApplicant" value="no" class="ml-4 mr-2" checked /> No
+                </div>
+              </div>
+      
+            </div>
+      
+      
+      
+      
+      
+      
+      
+            <!-- <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
+              <div></div>
+              <div>
+                <button type="button"
+                  class="shadow-md border-b-2 text-white bg-blue-950 hover:bg-blue-900 py-2 px-4 rounded-sm mr-2">Confirm</button>
+      
+              </div>
+            </div> -->
+      
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-sm font-bold">Applicant Financial Statement</label>
+      
+                <label class="block text-sm font-medium">Financial Statement Provided?</label>
+                <div class="flex items-center mt-1">
+                  <input formControlName="finacialStatemet" type="radio" name="finacialStatemet" value="yes" class="mr-2" /> Yes
+                  <input formControlName="finacialStatemet" type="radio" name="finacialStatemet" value="no" class="ml-4 mr-2" checked /> No
+                </div>
+              </div>
+      
+              <div>
+                <label class="block text-sm font-normal">Service Fee</label>
+                <select formControlName="serviceFee" class="w-full mt-1 p-2 border-0 border-b-2 focus:outline-none focus:ring-0 focus:border-black">
+                  <option value="">Service Fee</option>
+
+                  <option value="Not Paid">Not Paid</option>
+                  <option value="Paid">Paid</option>
+      
+      
+                  <!-- Add state options here -->
+                </select>
+              </div>
+            </div>
+          </fieldset>
+      
+        </mat-expansion-panel>
+      
+        <mat-expansion-panel (opened)="panelOpenState.set(true)" (closed)="panelOpenState.set(false)">
+          <mat-expansion-panel-header class="bg-gray-100">
+            <mat-panel-title> Custodial Party Attorney Information</mat-panel-title>
+            <mat-panel-description>
+              <!-- Currently I am {{panelOpenState() ? 'open' : 'closed'}} -->
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+      
+          <!-- <app-custodial-party-attorney-information></app-custodial-party-attorney-information> -->
+      
+          <fieldset class="mb-6">
+            <!-- <legend class="text-lg font-semibold">Applicant Mailing Address</legend> -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+              <div>
+                <!-- <label class="block text-sm font-medium">Source</label> -->
+                <input formControlName="attorney_firstName" type="text"
+                  class="w-full mt-1 p-2 border-0 border-b-2 focus:outline-none focus:ring-0 focus:border-black"
+                  placeholder="First Name" />
+              </div>
+              <div>
+                <input formControlName="attorney_middleName" type="text"
+                  class="w-full mt-1 p-2 border-0 border-b-2 focus:outline-none focus:ring-0 focus:border-black"
+                  placeholder="Middle Name" />
+              </div>
+              <div>
+                <input formControlName="attorney_lastName" type="text"
+                  class="w-full mt-1 p-2 border-0 border-b-2 focus:outline-none focus:ring-0 focus:border-black"
+                  placeholder="Last Name" />
+              </div>
+              <div>
+                <input formControlName="attorney_phone" type="text"
+                  class="w-full mt-1 p-2 border-0 border-b-2 focus:outline-none focus:ring-0 focus:border-black"
+                  placeholder="Phone" />
+              </div>
+              <div>
+                <input formControlName="attorney_source" type="text"
+                  class="w-full mt-1 p-2 border-0 border-b-2 focus:outline-none focus:ring-0 focus:border-black"
+                  placeholder="Source" />
+              </div>
+      
+              <div>
+                <label class="block text-sm font-medium">International Address?</label>
+                <div class="flex items-center mt-1">
+                  <input formControlName="attorney_interNationalAddress" type="radio" name="attorney_interNationalAddress" value="yes" class="mr-2" /> Yes
+                  <input formControlName="attorney_interNationalAddress" type="radio" name="attorney_interNationalAddress" value="no" class="ml-4 mr-2" checked /> No
+                </div>
+              </div>
+              <div>
+                <label class="block text-sm font-medium">Address Validated</label>
+                <p class="mt-1">No <span class="text-gray-500">ⓘ</span></p>
+              </div>
+              <div>
+                <!-- <label class="block text-sm font-medium">Address Line 1</label> -->
+                <input formControlName="attorney_addressLine1" type="text"
+                  class="w-full mt-1 p-2 border-0 border-b-2 focus:outline-none focus:ring-0 focus:border-black"
+                  placeholder="Address Line 1" />
+              </div>
+              <div>
+                <!-- <label class="block text-sm font-medium">Address Line 2</label> -->
+                <input formControlName="attorney_addressLine2" type="text"
+                  class="w-full mt-1 p-2 border-0 border-b-2 focus:outline-none focus:ring-0 focus:border-black"
+                  placeholder="Address Line 2" />
+              </div>
+              <div>
+                <!-- <label class="block text-sm font-medium">City</label> -->
+                <input formControlName="attorney_city" type="text"
+                  class="w-full mt-1 p-2 border-0 border-b-2 focus:outline-none focus:ring-0 focus:border-black"
+                  placeholder="City" />
+              </div>
+              <div>
+                <!-- <label class="block text-sm font-medium">State</label> -->
+                <select formControlName="attorney_state" class="w-full mt-1 p-2 border-0 border-b-2 focus:outline-none focus:ring-0 focus:border-black">
+                  <option value="">State</option>
+      
+                  <!-- Add state options here -->
+                </select>
+              </div>
+              <div>
+                <!-- <label class="block text-sm font-medium">County</label> -->
+                <select formControlName="attorney_county" class="w-full mt-1 p-2 border-0 border-b-2 focus:outline-none focus:ring-0 focus:border-black">
+                  <option value="">County</option>
+                  <!-- Add state options here -->
+                </select>
+              </div>
+      
+              <div>
+                <label class="block text-sm font-medium">Zip Code</label>
+                <input formControlName="attorney_zipcode" type="text"
+                  class="w-full mt-1 p-2 border-0 border-b-2 focus:outline-none focus:ring-0 focus:border-black"
+                  placeholder="Zip Code" />
+              </div>
+              <div>
+                <label class="block text-sm font-medium">Country</label>
+                <input formControlName="attorney_country" type="text" value="United States of America"
+                  class="w-full mt-1 p-2 border-0 border-b-2 focus:outline-none focus:ring-0 focus:border-black"
+                  readonly />
+              </div>
+      
+            </div>
+          </fieldset>
+      
+      
+        </mat-expansion-panel>
+      
+        <mat-expansion-panel (opened)="panelOpenState.set(true)" (closed)="panelOpenState.set(false)">
+          <mat-expansion-panel-header class="bg-gray-100">
+            <mat-panel-title> Custodial Party Asset Information</mat-panel-title>
+            <mat-panel-description>
+              <!-- Currently I am {{panelOpenState() ? 'open' : 'closed'}} -->
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <!-- <p>I'm visible because I am open</p> -->
+          <!-- <app-custodial-party-asset-information></app-custodial-party-asset-information> -->
+      
+          <fieldset class="mb-6">
+           <div [formGroup]="assetForm">
+             <!-- <legend class="text-lg font-semibold">Personal Information</legend> -->
+             <div class="bg-gray-100 p-1">
+              <legend class="text-base font-normal">Custodial Party Assets</legend>
+      
+            </div>
+      
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-2 border border-gray-300">
+      
+              <div>
+                <select formControlName="asset_type" class="w-full mt-1 p-2 border-0 border-b-2 focus:outline-none focus:ring-0 focus:border-black">
+                  <option value="">Select Asset Type</option>
+  
+                  <option value="bank account">Bank Account</option>
+                  <option value="real estate">Real Estate</option>
+      
+      
+                  <!-- Add state options here -->
+                </select>
+              </div>
+
+              
+              <div>
+                <input id="asset_value" formControlName="asset_value" type="number"
+                  class="w-full mt-1 p-2 border-0 border-b-2 focus:outline-none focus:ring-0 focus:border-black"
+                  placeholder="Asset Value" />
+              </div>
+              <div class="flex w-full justify-end" >
+                <button type="button"
+                  class="shadow-md border-b-2 text-white bg-blue-950 hover:bg-blue-900 py-2 px-4 rounded-sm mr-2" (click)="addAsset()">Add
+                  Asset</button>
+      
+              </div>
+   
+            </div>
+            <!-- <div class="flex w-full justify-end p-2 border border-gray-300">
+              <div>
+                <button type="button"
+                  class="shadow-md border-b-2 text-white bg-blue-950 hover:bg-blue-900 py-2 px-4 rounded-sm mr-2">Add
+                  Asset</button>
+      
+              </div>
+            </div> -->
+           </div>
+      
+          </fieldset>
+          <table *ngIf="asset.length > 0" mat-table [dataSource]="asset.value" class="mat-elevation-z8 demo-table">
+   
+  
+            <!-- asset_type Column -->
+            <ng-container matColumnDef="asset_type">
+              <th mat-header-cell *matHeaderCellDef>Asset Type</th>
+              <td mat-cell *matCellDef="let asset">{{asset.asset_type}}</td>
+            </ng-container>
+        
+              
+          
+            <!-- asset_value Column -->
+            <ng-container matColumnDef="asset_value">
+              <th mat-header-cell *matHeaderCellDef>Asset Amount</th>
+              <td mat-cell *matCellDef="let asset">{{asset.asset_value}}</td>
+            </ng-container>
+        
+          
+            <!-- Actions Column -->
+            <ng-container matColumnDef="actions">
+              <th mat-header-cell *matHeaderCellDef>Actions</th>
+              <td mat-cell *matCellDef="let i = index">
+                <button mat-icon-button color="warn" (click)="deleteAsset(i)">
+                  <mat-icon>delete</mat-icon>
+                </button>
+              </td>
+            </ng-container>
+        
+            <tr mat-header-row *matHeaderRowDef="['asset_type','asset_value', 'actions']"></tr>
+            <tr mat-row *matRowDef="let row; columns: ['asset_type','asset_value', 'actions'];"></tr>
+          </table>
+        </mat-expansion-panel>
+      </form>
+  
+</mat-accordion>
+<!-- <div class="flex justify-end mt-6">
+  <button type="button" class="bg-gray-300 text-gray-700 py-2 px-4 rounded-md mr-2">Clear</button>
+  <button mat-button matStepperNext  type="button"  class="bg-blue-500 text-white py-2 px-4 rounded-md"  >Next</button>
+</div> -->
+
+
+<!-- </form> -->
+
+
+  <!-- </div> -->
+
+</div>
+
+
+
+<!-- <div class="space-y-4"> -->
+<!-- Accordion Item 1 -->
+<!-- <div class="border border-gray-200 rounded-md"> -->
+<!-- <button class="w-full flex justify-between items-center px-4 py-2 text-left text-lg font-medium text-gray-700 bg-gray-100 rounded-md hover:bg-gray-200 focus:outline-none" (click)="toggleAccordion(1)">
+          <span>Personal Information</span>
+          <svg class="w-5 h-5 transition-transform duration-300"  [ngClass]="{'rotate-180': isAccordionOpen(1)}" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+        </button>
+        <div *ngIf="isAccordionOpen(1)" class="p-4 bg-white transition transition-height duration-300 ease-in-out transform"> -->
+<!-- Insert form fields for Personal Information here -->
+<!-- <app-personal-information></app-personal-information>
+        </div>
+  </div>   
+</div> -->
